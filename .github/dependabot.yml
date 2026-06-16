@@ -1,0 +1,57 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Asia/Kolkata
+    open-pull-requests-limit: 5
+    groups:
+      production-dependencies:
+        dependency-type: production
+        patterns:
+          - "@octokit/*"
+          - "@modelcontextprotocol/*"
+          - fastify
+          - zod
+          - pino
+          - "@opentelemetry/*"
+      development-dependencies:
+        dependency-type: development
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "deps"
+      prefix-development: "dev"
+      include: scope
+    labels:
+      - "dependencies"
+      - "npm"
+    ignore:
+      - dependency-name: "*"
+        versions:
+          - "0.x"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: tuesday
+      time: "06:00"
+      timezone: Asia/Kolkata
+    open-pull-requests-limit: 5
+    groups:
+      actions-minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: "ci"
+      include: scope
+    labels:
+      - "dependencies"
+      - "github-actions"
