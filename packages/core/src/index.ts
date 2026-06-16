@@ -54,3 +54,9 @@ export {
   handleStreamableHttp,
   type StreamableHttpOptions,
 } from "./transport/index.js";
+
+export {
+  runStdio,
+  requireGithubToken,
+  type StdioOptions,
+} from "./transport/index.js";
