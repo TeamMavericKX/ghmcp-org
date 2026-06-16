@@ -1,0 +1,22 @@
+# CODEOWNERS
+# Each line is a file pattern followed by one or more owners.
+# Order matters: later matches override earlier ones.
+# See https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners for everything not otherwise matched.
+/                                       @TeamMavericKX/maintainers
+
+# CI and release surface — stricter review.
+/.github/                                @TeamMavericKX/maintainers
+/.changeset/                             @TeamMavericKX/maintainers
+
+# Security-sensitive code: auth, transport, MCP protocol handling, secrets.
+/packages/security/                      @TeamMavericKX/maintainers
+/packages/core/src/server/               @TeamMavericKX/maintainers
+/packages/core/src/transport/            @TeamMavericKX/maintainers
+/packages/github-app/                    @TeamMavericKX/maintainers
+
+# Destructive tools (repo, issue, PR mutations).
+/packages/tools/src/repos/               @TeamMavericKX/maintainers
+/packages/tools/src/issues/              @TeamMavericKX/maintainers
+/packages/tools/src/pulls/               @TeamMavericKX/maintainers
