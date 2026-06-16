@@ -24,3 +24,16 @@ export {
   type RegisteredTool,
   type ToolsetName,
 } from "./registry/index.js";
+
+export {
+  McpError,
+  InvalidInputError,
+  UnauthorizedError,
+  ForbiddenError,
+  NotFoundError,
+  RateLimitError,
+  ConflictError,
+  UnavailableError,
+  InternalError,
+  toJsonRpcError,
+} from "./errors/index.js";
