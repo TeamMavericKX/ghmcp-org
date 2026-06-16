@@ -1,0 +1,24 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      glob: "*.{ts,tsx,js,jsx,json}"
+      run: pnpm biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+    cspell:
+      glob: "*.{ts,tsx,js,jsx,md,json,yaml,yml}"
+      run: pnpm cspell --no-progress {staged_files}
+    typecheck:
+      glob: "*.{ts,tsx}"
+      run: pnpm typecheck
+      skip:
+        - merge
+        - rebase
+
+pre-push:
+  parallel: false
+  commands:
+    test:
+      run: pnpm test
+    build:
+      run: pnpm build
