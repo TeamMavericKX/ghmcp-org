@@ -60,3 +60,13 @@ export {
   requireGithubToken,
   type StdioOptions,
 } from "./transport/index.js";
+
+export {
+  resolveToolset,
+  validateSpec,
+  SHIPPED_TOOLSETS,
+  type ToolsetName,
+  type ToolsetSpec,
+  type ResolvedToolset,
+  type ToolsetConfig,
+} from "./toolset/index.js";

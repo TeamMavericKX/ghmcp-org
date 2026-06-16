@@ -7,6 +7,7 @@ export default defineConfig({
     "src/errors/index.ts",
     "src/capabilities/index.ts",
     "src/transport/index.ts",
+    "src/toolset/index.ts",
   ],
   format: ["esm"],
   target: "node22",
