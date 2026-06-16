@@ -77,3 +77,10 @@ export {
   type DescriptionSnapshot,
   type RugPullSignal,
 } from "./security-rugpull.js";
+
+export {
+  createRateLimiter,
+  type RateLimitPolicy,
+  type RateLimiter,
+  type RateLimitStatus,
+} from "./rate-limit.js";

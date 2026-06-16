@@ -9,6 +9,7 @@ export default defineConfig({
     "src/transport/index.ts",
     "src/toolset/index.ts",
     "src/security-rugpull.ts",
+    "src/rate-limit.ts",
   ],
   format: ["esm"],
   target: "node22",
