@@ -37,3 +37,13 @@ export {
   InternalError,
   toJsonRpcError,
 } from "./errors/index.js";
+
+export {
+  SUPPORTED_PROTOCOL_VERSIONS,
+  negotiateProtocolVersion,
+  buildInitializeResult,
+  VENDOR,
+  type ServerCapabilities,
+  type ServerInfo,
+  type InitializeResult,
+} from "./capabilities/index.js";
