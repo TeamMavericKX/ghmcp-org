@@ -8,6 +8,7 @@ export default defineConfig({
     "src/capabilities/index.ts",
     "src/transport/index.ts",
     "src/toolset/index.ts",
+    "src/security-rugpull.ts",
   ],
   format: ["esm"],
   target: "node22",

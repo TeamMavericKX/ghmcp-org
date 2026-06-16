@@ -70,3 +70,10 @@ export {
   type ResolvedToolset,
   type ToolsetConfig,
 } from "./toolset/index.js";
+
+export {
+  describeHash,
+  DescriptionWatch,
+  type DescriptionSnapshot,
+  type RugPullSignal,
+} from "./security-rugpull.js";
