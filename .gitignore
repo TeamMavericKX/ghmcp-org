@@ -1,0 +1,60 @@
+# Node
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+sops.yaml
+.env.enc
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.swp
+*.swo
+Thumbs.db
+
+# Test artifacts
+.vitest/
+playwright-report/
+test-results/
+junit-*.xml
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Tooling caches
+.tsup/
+.vite/
+.turbo/
+.cache/
+
+# Container
+.docker/
+*.tar
+*.tar.gz
