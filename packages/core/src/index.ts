@@ -15,3 +15,12 @@ export type {
   ToolErrorCode,
   ProtocolVersion,
 } from "./types.js";
+
+export {
+  createRegistry,
+  hashDescription,
+  type Registry,
+  type RegistryOptions,
+  type RegisteredTool,
+  type ToolsetName,
+} from "./registry/index.js";
