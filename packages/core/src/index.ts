@@ -47,3 +47,10 @@ export {
   type ServerInfo,
   type InitializeResult,
 } from "./capabilities/index.js";
+
+export {
+  inspectRequest,
+  extractBearer,
+  handleStreamableHttp,
+  type StreamableHttpOptions,
+} from "./transport/index.js";
