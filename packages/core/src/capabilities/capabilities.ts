@@ -4,14 +4,14 @@
 // transport features it supports, and the toolsets it has loaded.
 // Clients (MCP hosts) consult these during the `initialize` handshake.
 
-import type { ProtocolVersion } from "../types.js";
+import type { ProtocolVersion } from '../types.js';
 
 /** Versions of the MCP spec the server can speak, newest first. */
 export const SUPPORTED_PROTOCOL_VERSIONS: readonly string[] = [
-  "2026-07-28",
-  "2025-11-25",
-  "2025-06-18",
-  "2024-11-05",
+  '2026-07-28',
+  '2025-11-25',
+  '2025-06-18',
+  '2024-11-05',
 ] as const;
 
 /** Pick the best version the client supports. */
@@ -27,7 +27,7 @@ export function negotiateProtocolVersion(requested: string): ProtocolVersion {
   // gracefully disconnect if it cannot accept it.
   const fallback = SUPPORTED_PROTOCOL_VERSIONS[0];
   if (fallback === undefined) {
-    throw new Error("no protocol versions configured");
+    throw new Error('no protocol versions configured');
   }
   return {
     requested,
@@ -53,7 +53,7 @@ export interface ServerInfo {
   readonly vendor: string;
 }
 
-export const VENDOR = "ghmcp-org";
+export const VENDOR = 'ghmcp-org';
 
 export interface InitializeResult {
   readonly protocolVersion: string;

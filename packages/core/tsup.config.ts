@@ -1,18 +1,18 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: [
-    "src/index.ts",
-    "src/registry/index.ts",
-    "src/errors/index.ts",
-    "src/capabilities/index.ts",
-    "src/transport/index.ts",
-    "src/toolset/index.ts",
-    "src/security-rugpull.ts",
-    "src/rate-limit.ts",
+    'src/index.ts',
+    'src/registry/index.ts',
+    'src/errors/index.ts',
+    'src/capabilities/index.ts',
+    'src/transport/index.ts',
+    'src/toolset/index.ts',
+    'src/security-rugpull.ts',
+    'src/rate-limit.ts',
   ],
-  format: ["esm"],
-  target: "node22",
+  format: ['esm'],
+  target: 'node22',
   dts: true,
   sourcemap: true,
   clean: true,

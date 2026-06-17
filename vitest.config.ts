@@ -9,13 +9,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html', 'lcov', 'json-summary'],
       include: ['packages/*/src/**/*.ts', 'apps/*/src/**/*.ts'],
-      exclude: [
-        '**/*.test.ts',
-        '**/*.d.ts',
-        '**/index.ts',
-        '**/types.ts',
-        '**/__fixtures__/**',
-      ],
+      exclude: ['**/*.test.ts', '**/*.d.ts', '**/index.ts', '**/types.ts', '**/__fixtures__/**'],
       thresholds: {
         lines: 80,
         functions: 80,

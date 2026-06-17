@@ -9,4 +9,4 @@ export {
   UnavailableError,
   InternalError,
   toJsonRpcError,
-} from "./errors.js";
+} from './errors.js';

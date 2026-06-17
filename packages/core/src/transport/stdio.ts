@@ -5,8 +5,8 @@
 // SDK provides the framing; we add a single-shot auth gate that runs
 // against the process env (GITHUB_TOKEN or an installation id+key).
 
-import type { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { UnauthorizedError } from "../errors/index.js";
+import type { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { UnauthorizedError } from '../errors/index.js';
 
 export interface StdioOptions {
   /** Build the SDK transport. */
@@ -26,16 +26,16 @@ export async function runStdio(opts: StdioOptions): Promise<void> {
       resolve();
       return;
     }
-    process.stdin.once("end", () => resolve());
-    process.stdin.once("close", () => resolve());
+    process.stdin.once('end', () => resolve());
+    process.stdin.once('close', () => resolve());
   });
   await transport.close();
 }
 
 /** Default auth gate: require a GITHUB_TOKEN env var or refuse to start. */
 export function requireGithubToken(env: NodeJS.ProcessEnv): void {
-  const token = env["GITHUB_TOKEN"];
-  if (typeof token !== "string" || token.length === 0) {
-    throw new UnauthorizedError("GITHUB_TOKEN env var is required for stdio transport");
+  const token = env.GITHUB_TOKEN;
+  if (typeof token !== 'string' || token.length === 0) {
+    throw new UnauthorizedError('GITHUB_TOKEN env var is required for stdio transport');
   }
 }

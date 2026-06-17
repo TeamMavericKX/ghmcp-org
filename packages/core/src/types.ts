@@ -1,7 +1,7 @@
 // Core types shared across transports, the registry, and tool authors.
 // Kept dependency-free so they can be imported by any package.
 
-import type { ZodType } from "zod";
+import type { ZodType } from 'zod';
 
 /** MCP tool annotations as declared by the author and enforced by the host. */
 export interface McpToolAnnotations {
@@ -82,14 +82,14 @@ export interface ToolFailure {
 }
 
 export type ToolErrorCode =
-  | "invalid_input"
-  | "unauthorized"
-  | "forbidden"
-  | "not_found"
-  | "rate_limited"
-  | "conflict"
-  | "unavailable"
-  | "internal";
+  | 'invalid_input'
+  | 'unauthorized'
+  | 'forbidden'
+  | 'not_found'
+  | 'rate_limited'
+  | 'conflict'
+  | 'unavailable'
+  | 'internal';
 
 /** Protocol version negotiation. The server supports a range. */
 export interface ProtocolVersion {

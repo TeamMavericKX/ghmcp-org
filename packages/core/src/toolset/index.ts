@@ -6,4 +6,4 @@ export {
   type ToolsetSpec,
   type ResolvedToolset,
   type ToolsetConfig,
-} from "./toolset.js";
+} from './toolset.js';

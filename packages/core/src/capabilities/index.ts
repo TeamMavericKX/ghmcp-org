@@ -6,4 +6,4 @@ export {
   type ServerCapabilities,
   type ServerInfo,
   type InitializeResult,
-} from "./capabilities.js";
+} from './capabilities.js';

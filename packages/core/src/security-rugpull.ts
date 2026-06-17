@@ -4,7 +4,7 @@
 // different. We pin a hash of the description at first sight and warn
 // on change.
 
-import { createHash } from "node:crypto";
+import { createHash } from 'node:crypto';
 
 export interface DescriptionSnapshot {
   readonly name: string;
@@ -22,7 +22,7 @@ export interface RugPullSignal {
 
 /** Compute the description hash used by the registry. */
 export function describeHash(description: string): string {
-  return createHash("sha256").update(description, "utf8").digest("hex").slice(0, 16);
+  return createHash('sha256').update(description, 'utf8').digest('hex').slice(0, 16);
 }
 
 /** Track descriptions and emit a signal on tamper. */

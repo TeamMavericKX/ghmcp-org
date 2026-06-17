@@ -1,16 +1,16 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    include: ["src/**/*.test.ts"],
-    environment: "node",
+    include: ['src/**/*.test.ts'],
+    environment: 'node',
     globals: false,
-    reporters: ["default"],
+    reporters: ['default'],
     coverage: {
-      provider: "v8",
-      reporter: ["text", "lcov", "json-summary"],
-      include: ["src/**/*.ts"],
-      exclude: ["src/**/*.test.ts", "src/**/index.ts", "src/**/*.d.ts"],
+      provider: 'v8',
+      reporter: ['text', 'lcov', 'json-summary'],
+      include: ['src/**/*.ts'],
+      exclude: ['src/**/*.test.ts', 'src/**/index.ts', 'src/**/*.d.ts'],
       thresholds: {
         // Loose floor; tightened per-module in later commits.
         lines: 80,
@@ -19,7 +19,7 @@ export default defineConfig({
         branches: 70,
       },
     },
-    pool: "threads",
+    pool: 'threads',
     poolOptions: {
       threads: {
         singleThread: false,
