@@ -83,3 +83,14 @@ export {
   type RateLimiter,
   type RateLimitStatus,
 } from './rate-limit.js';
+
+export {
+  mintAppJwt,
+  base64UrlDecode,
+  decodeJwtHeader,
+  decodeJwtPayload,
+  type MintOptions,
+  type MintResult,
+  type GitHubAppJwtClaims,
+  type PrivateKeyPem,
+} from './github-app/index.js';
