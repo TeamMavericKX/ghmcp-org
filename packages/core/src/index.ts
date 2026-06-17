@@ -95,6 +95,8 @@ export {
   isTokenExpired,
   shouldRefreshToken,
   tokenRemainingSeconds,
+  loadGitHubAppConfig,
+  DEFAULT_GITHUB_API_BASE,
   type MintOptions,
   type MintResult,
   type GitHubAppJwtClaims,
@@ -106,4 +108,7 @@ export {
   type InstallationRepositorySelection,
   type InstallationToken,
   type InstallationTokenResponse,
+  type GitHubAppConfig,
+  type GitHubAppConfigSource,
+  type LoadConfigOptions,
 } from './github-app/index.js';

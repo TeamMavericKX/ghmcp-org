@@ -27,3 +27,11 @@ export {
   type InstallationToken,
   type InstallationTokenResponse,
 } from './installation.js';
+
+export {
+  loadGitHubAppConfig,
+  DEFAULT_GITHUB_API_BASE,
+  type GitHubAppConfig,
+  type GitHubAppConfigSource,
+  type LoadConfigOptions,
+} from './config.js';
