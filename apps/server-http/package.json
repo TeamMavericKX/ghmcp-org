@@ -1,0 +1,22 @@
+{
+  "name": "@ghmcp-org/server-http",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Streamable HTTP transport entry point for the ghmcp-org MCP server.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@ghmcp-org/core": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  }
+}

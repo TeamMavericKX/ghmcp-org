@@ -36,16 +36,34 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@22.19.21)
 
+  apps/server-http:
+    dependencies:
+      '@ghmcp-org/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.29.0
+        version: 1.29.0(zod@3.25.76)
+
+  apps/server-stdio:
+    dependencies:
+      '@ghmcp-org/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.29.0
+        version: 1.29.0(zod@3.25.76)
+
   packages/core:
     dependencies:
       '@modelcontextprotocol/sdk':
         specifier: ^1.29.0
         version: 1.29.0(zod@3.25.76)
       pino:
-        specifier: ^9.5.0
+        specifier: ^9.14.0
         version: 9.14.0
       zod:
-        specifier: ^3.23.8
+        specifier: ^3.25.76
         version: 3.25.76
     devDependencies:
       tsup:

@@ -11,16 +11,19 @@
   },
   "packageManager": "pnpm@9.12.0",
   "scripts": {
-    "build": "tsup",
+    "build": "pnpm run build:core && pnpm run build:http && pnpm run build:stdio",
+    "build:core": "pnpm --filter @ghmcp-org/core run build",
+    "build:http": "pnpm --filter @ghmcp-org/server-http run build",
+    "build:stdio": "pnpm --filter @ghmcp-org/server-stdio run build",
     "typecheck": "tsc -b",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
-    "test": "vitest run",
+    "test": "pnpm --filter @ghmcp-org/core run test",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "dev:http": "tsx watch apps/server-http/src/index.ts",
-    "dev:stdio": "tsx apps/server-stdio/src/index.ts",
+    "dev:http": "pnpm run build:core && tsx watch apps/server-http/src/index.ts",
+    "dev:stdio": "pnpm run build:core && tsx apps/server-stdio/src/index.ts",
     "docs:tools": "tsx scripts/gen-tools-md.ts"
   },
   "devDependencies": {
