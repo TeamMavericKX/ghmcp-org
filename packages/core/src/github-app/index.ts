@@ -35,3 +35,12 @@ export {
   type GitHubAppConfigSource,
   type LoadConfigOptions,
 } from './config.js';
+
+export {
+  InstallationTokenCache,
+  DEFAULT_INSTALLATION_TOKEN_REFRESH_WINDOW_SECONDS,
+  type InstallationTokenCacheOptions,
+  type InstallationTokenFetcher,
+  type Clock,
+  type CacheSnapshotEntry,
+} from './cache.js';

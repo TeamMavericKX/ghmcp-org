@@ -97,6 +97,8 @@ export {
   tokenRemainingSeconds,
   loadGitHubAppConfig,
   DEFAULT_GITHUB_API_BASE,
+  InstallationTokenCache,
+  DEFAULT_INSTALLATION_TOKEN_REFRESH_WINDOW_SECONDS,
   type MintOptions,
   type MintResult,
   type GitHubAppJwtClaims,
@@ -111,4 +113,8 @@ export {
   type GitHubAppConfig,
   type GitHubAppConfigSource,
   type LoadConfigOptions,
+  type InstallationTokenCacheOptions,
+  type InstallationTokenFetcher,
+  type Clock,
+  type CacheSnapshotEntry,
 } from './github-app/index.js';
