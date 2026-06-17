@@ -44,3 +44,10 @@ export {
   type Clock,
   type CacheSnapshotEntry,
 } from './cache.js';
+
+export {
+  GitHubAppClient,
+  type GitHubAppClientOptions,
+  type AccessTokenRequest,
+  type HttpRequest,
+} from './client.js';
