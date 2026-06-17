@@ -129,8 +129,11 @@ function includeIfSet<K extends string>(
   key: K,
   value: string | undefined,
 ): Partial<Record<K, string>> {
-  if (typeof value === 'string' && value.length > 0) {
-    return { [key]: value } as Partial<Record<K, string>>;
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    if (trimmed.length > 0) {
+      return { [key]: trimmed } as Partial<Record<K, string>>;
+    }
   }
   return {};
 }
