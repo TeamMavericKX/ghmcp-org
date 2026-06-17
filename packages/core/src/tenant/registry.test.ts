@@ -8,6 +8,7 @@ function makeTenant(overrides: Partial<TenantConfig> = {}): TenantConfig {
     displayName: 'Acme',
     appId: '123',
     installationId: '456',
+    privateKey: '-----BEGIN PRIVATE KEY-----\nfake\n-----END PRIVATE KEY-----',
     repositorySelection: 'all',
     allowedRepositoryIds: [],
     allowedToolsets: ['repos'],
@@ -90,6 +91,12 @@ describe('TenantRegistry', () => {
 
   it('rejects empty displayName', () => {
     expect(() => new TenantRegistry({ tenants: [makeTenant({ displayName: '' })] })).toThrow(
+      InvalidInputError,
+    );
+  });
+
+  it('rejects empty privateKey', () => {
+    expect(() => new TenantRegistry({ tenants: [makeTenant({ privateKey: '' })] })).toThrow(
       InvalidInputError,
     );
   });

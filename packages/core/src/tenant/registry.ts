@@ -23,6 +23,8 @@ export interface TenantConfig {
   readonly appId: string;
   /** Installation id to mint access tokens for. */
   readonly installationId: string;
+  /** Resolved PEM private key (already trimmed, BEGIN/END checked). */
+  readonly privateKey: string;
   /** Whether the tenant's access tokens should bind to all or selected repos. */
   readonly repositorySelection: InstallationRepositorySelection;
   /** Specific repository ids this tenant is allowed to operate on (empty = all). */
@@ -125,6 +127,9 @@ function validateTenant(tenant: TenantConfig): void {
     throw new InvalidInputError(`tenant ${tenant.id}: installationId must be numeric`, {
       cause: { installationId: tenant.installationId },
     });
+  }
+  if (tenant.privateKey.trim().length === 0) {
+    throw new InvalidInputError(`tenant ${tenant.id}: privateKey is required`);
   }
   for (const toolset of tenant.allowedToolsets) {
     if (toolset.length === 0) {

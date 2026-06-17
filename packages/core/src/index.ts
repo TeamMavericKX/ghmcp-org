@@ -81,6 +81,12 @@ export {
   TenantRegistry,
   type TenantConfig,
   type TenantRegistryOptions,
+  loadTenantRegistryFromDocument,
+  loadTenantRegistryFromFile,
+  type TenantConfigDocument,
+  type TenantConfigDocumentTenant,
+  type TenantConfigFileSource,
+  type LoadTenantConfigOptions,
 } from './tenant/index.js';
 
 export {
