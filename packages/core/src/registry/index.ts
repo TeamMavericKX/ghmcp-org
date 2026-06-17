@@ -4,5 +4,4 @@ export {
   type Registry,
   type RegistryOptions,
   type RegisteredTool,
-  type ToolsetName,
-} from "./registry.js";
+} from './registry.js';

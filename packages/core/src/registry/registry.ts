@@ -1,10 +1,9 @@
 // Tool registry. Holds the set of McpToolDefinitions, the active toolset
 // gate, and per-tool description hashes for rug-pull detection.
 
-import { createHash } from "node:crypto";
-import type { McpToolDefinition, McpToolAnnotations } from "../types.js";
-
-export type ToolsetName = string;
+import { createHash } from 'node:crypto';
+import type { ToolsetName } from '../toolset/index.js';
+import type { McpToolAnnotations, McpToolDefinition } from '../types.js';
 
 export interface RegistryOptions {
   readonly enabledToolsets: ReadonlySet<ToolsetName>;
@@ -61,7 +60,7 @@ class DefaultRegistry implements Registry {
   list(): readonly RegisteredTool[] {
     const out: RegisteredTool[] = [];
     for (const [name, def] of this.tools) {
-      out.push(toProject(name, def, this.toolset.get(name) ?? "default"));
+      out.push(toProject(name, def, this.toolset.get(name) ?? 'default'));
     }
     return out;
   }
@@ -81,11 +80,7 @@ class DefaultRegistry implements Registry {
   }
 }
 
-function toProject(
-  name: string,
-  def: McpToolDefinition,
-  toolset: ToolsetName,
-): RegisteredTool {
+function toProject(name: string, def: McpToolDefinition, toolset: ToolsetName): RegisteredTool {
   return {
     name,
     description: def.description,
@@ -99,7 +94,7 @@ function toProject(
 
 /** Stable, short SHA-256 of a tool description; used to detect tampering. */
 export function hashDescription(description: string): string {
-  return createHash("sha256").update(description, "utf8").digest("hex").slice(0, 16);
+  return createHash('sha256').update(description, 'utf8').digest('hex').slice(0, 16);
 }
 
 export function createRegistry(opts: RegistryOptions): Registry {

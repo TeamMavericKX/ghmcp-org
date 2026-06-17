@@ -2,7 +2,7 @@
 // full and refills at a fixed rate. A successful consume takes one
 // token; an empty bucket rejects with RateLimitError.
 
-import { RateLimitError } from "./errors/index.js";
+import { RateLimitError } from './errors/index.js';
 
 export interface RateLimitPolicy {
   readonly name: string;
@@ -28,13 +28,19 @@ export interface RateLimitStatus {
 class TokenBucket {
   tokens: number;
   lastRefillMs: number;
-  constructor(public readonly policy: RateLimitPolicy, now: number) {
+  constructor(
+    public readonly policy: RateLimitPolicy,
+    now: number,
+  ) {
     this.tokens = policy.capacity;
     this.lastRefillMs = now;
   }
   take(weight: number, now: number): boolean {
     const elapsed = Math.max(0, (now - this.lastRefillMs) / 1000);
-    this.tokens = Math.min(this.policy.capacity, this.tokens + elapsed * this.policy.refillPerSecond);
+    this.tokens = Math.min(
+      this.policy.capacity,
+      this.tokens + elapsed * this.policy.refillPerSecond,
+    );
     this.lastRefillMs = now;
     if (this.tokens >= weight) {
       this.tokens -= weight;
@@ -48,7 +54,10 @@ class DefaultRateLimiter implements RateLimiter {
   private readonly buckets = new Map<string, TokenBucket>();
   private readonly policies = new Map<string, RateLimitPolicy>();
 
-  constructor(policies: readonly RateLimitPolicy[], private readonly now: () => number = Date.now) {
+  constructor(
+    policies: readonly RateLimitPolicy[],
+    private readonly now: () => number = Date.now,
+  ) {
     for (const p of policies) {
       if (this.policies.has(p.name)) {
         throw new Error(`duplicate rate limit policy: ${p.name}`);
@@ -73,6 +82,12 @@ class DefaultRateLimiter implements RateLimiter {
   snapshot(): readonly RateLimitStatus[] {
     return Array.from(this.policies.values()).map((p) => {
       const b = this.buckets.get(p.name);
+      if (b !== undefined) {
+        // Refill up to "now" before reporting, so a snapshot reflects
+        // what is available at the moment of the call, not at the last
+        // tryAcquire.
+        b.take(0, this.now());
+      }
       return {
         name: p.name,
         tokens: b?.tokens ?? p.capacity,
@@ -83,6 +98,9 @@ class DefaultRateLimiter implements RateLimiter {
   }
 }
 
-export function createRateLimiter(policies: readonly RateLimitPolicy[]): RateLimiter {
-  return new DefaultRateLimiter(policies);
+export function createRateLimiter(
+  policies: readonly RateLimitPolicy[],
+  now: () => number = Date.now,
+): RateLimiter {
+  return new DefaultRateLimiter(policies, now);
 }

@@ -25,7 +25,6 @@
     "toolset",
     "toolsets",
     "dryrun",
-    "octokit",
     "octokits",
     "lifecycle",
     "instr",
@@ -54,15 +53,18 @@
     "jwks",
     "ttl",
     "ttls",
-    "kustomization"
+    "kustomization",
+    "modelcontextprotocol",
+    "retriable",
+    "Streamable",
+    "streamable",
+    "rugpull",
+    "rugpulls",
+    "Lockfiles",
+    "lockfiles",
+    "vite",
+    "PKCE",
+    "xdev"
   ],
-  "ignorePaths": [
-    "node_modules",
-    "dist",
-    "coverage",
-    "pnpm-lock.yaml",
-    "*.svg",
-    "*.pem",
-    "LICENSE"
-  ]
+  "ignorePaths": ["node_modules", "dist", "coverage", "pnpm-lock.yaml", "*.svg", "*.pem", "LICENSE"]
 }

@@ -1,8 +1,8 @@
 // Public surface of @ghmcp-org/core.
 // Filled out incrementally in commits 12-19.
 
-export const PACKAGE_NAME = "@ghmcp-org/core";
-export const PACKAGE_VERSION = "0.0.0";
+export const PACKAGE_NAME = '@ghmcp-org/core';
+export const PACKAGE_VERSION = '0.0.0';
 
 export type {
   McpToolAnnotations,
@@ -14,7 +14,7 @@ export type {
   ToolFailure,
   ToolErrorCode,
   ProtocolVersion,
-} from "./types.js";
+} from './types.js';
 
 export {
   createRegistry,
@@ -22,8 +22,7 @@ export {
   type Registry,
   type RegistryOptions,
   type RegisteredTool,
-  type ToolsetName,
-} from "./registry/index.js";
+} from './registry/index.js';
 
 export {
   McpError,
@@ -36,7 +35,7 @@ export {
   UnavailableError,
   InternalError,
   toJsonRpcError,
-} from "./errors/index.js";
+} from './errors/index.js';
 
 export {
   SUPPORTED_PROTOCOL_VERSIONS,
@@ -46,20 +45,20 @@ export {
   type ServerCapabilities,
   type ServerInfo,
   type InitializeResult,
-} from "./capabilities/index.js";
+} from './capabilities/index.js';
 
 export {
   inspectRequest,
   extractBearer,
   handleStreamableHttp,
   type StreamableHttpOptions,
-} from "./transport/index.js";
+} from './transport/index.js';
 
 export {
   runStdio,
   requireGithubToken,
   type StdioOptions,
-} from "./transport/index.js";
+} from './transport/index.js';
 
 export {
   resolveToolset,
@@ -69,18 +68,18 @@ export {
   type ToolsetSpec,
   type ResolvedToolset,
   type ToolsetConfig,
-} from "./toolset/index.js";
+} from './toolset/index.js';
 
 export {
   describeHash,
   DescriptionWatch,
   type DescriptionSnapshot,
   type RugPullSignal,
-} from "./security-rugpull.js";
+} from './security-rugpull.js';
 
 export {
   createRateLimiter,
   type RateLimitPolicy,
   type RateLimiter,
   type RateLimitStatus,
-} from "./rate-limit.js";
+} from './rate-limit.js';
