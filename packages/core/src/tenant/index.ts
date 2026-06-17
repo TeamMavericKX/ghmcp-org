@@ -14,3 +14,9 @@ export {
   type TenantConfigFileSource,
   type LoadTenantConfigOptions,
 } from './config.js';
+
+export {
+  TenantAppClients,
+  type TenantClients,
+  type TenantAppClientsOptions,
+} from './clients.js';

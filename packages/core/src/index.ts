@@ -87,6 +87,9 @@ export {
   type TenantConfigDocumentTenant,
   type TenantConfigFileSource,
   type LoadTenantConfigOptions,
+  TenantAppClients,
+  type TenantClients,
+  type TenantAppClientsOptions,
 } from './tenant/index.js';
 
 export {
