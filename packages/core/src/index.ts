@@ -78,6 +78,12 @@ export {
 } from './security-rugpull.js';
 
 export {
+  TenantRegistry,
+  type TenantConfig,
+  type TenantRegistryOptions,
+} from './tenant/index.js';
+
+export {
   createRateLimiter,
   type RateLimitPolicy,
   type RateLimiter,
