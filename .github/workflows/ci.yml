@@ -58,7 +58,7 @@ jobs:
       - run: pnpm test
       - name: Upload coverage
         if: matrix != null
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v7
         with:
           files: ./coverage/lcov.info
           fail_ci_if_error: false
